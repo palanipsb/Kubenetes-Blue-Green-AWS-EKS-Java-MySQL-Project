@@ -116,7 +116,7 @@ pipeline {
                     if (params.DEPLOY_ENV == 'blue'){
                         deploymentFile = 'app-deployment-blue.yml'
                     }else{
-                        deploymentFile = 'app-deployment-geen.yml'
+                        deploymentFile = 'app-deployment-green.yml'
                     }
                     withKubeConfig(caCertificate: '', clusterName: ' webapp-cluster', contextName: '', credentialsId: 'k8-token', namespace: 'webapps', restrictKubeConfigAccess: false, serverUrl: 'https://E5788A172FDB598510A346565F78BFC1.gr7.ca-central-1.eks.amazonaws.com') {
                         sh "kubectl apply -f ${deploymentFile} -n ${KUBE_NAMESPACE}"
